@@ -1,5 +1,11 @@
 export default [
-  { path: '/', component: '@/pages/Home', title: '首页' },
+  // { path: '/', redirect: '/home' },
+  {
+    path: '/home',
+    component: '@/pages/home',
+    title: '首页',
+    redirect: '/home',
+  },
   { path: '/upload', component: '@/pages/Upload', title: '上传视频' },
   { path: '/wstool', component: '@/pages/WsTool', title: 'websocket' },
   { path: '/conversation', component: '@/pages/Conversation', title: '会话' },

@@ -1,4 +1,5 @@
 export default {
+  // 请求反向代理配置
   proxy: {
     // 用户
     '/user': {
@@ -36,4 +37,17 @@ export default {
     //   'pathRewrite': { '^/pubic': '' },
     // },
   },
+  // 路由
+  routes: [
+    { path: '/', redirect: '/home' },
+    { path: '/home', component: '@/pages/Home', title: '首页' },
+    { path: '/upload', component: '@/pages/Upload', title: '上传视频' },
+    { path: '/wstool', component: '@/pages/WsTool', title: 'websocket' },
+    { path: '/conversation', component: '@/pages/Conversation', title: '会话' },
+    {
+      path: '/searchPage',
+      component: '@/pages/SearchPage',
+      title: '搜索',
+    },
+  ],
 };

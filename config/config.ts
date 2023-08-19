@@ -1,6 +1,5 @@
 import { defineConfig } from 'umi';
 // 路由配置
-import routes from './routes';
 
 export default defineConfig({
   // nodeModulesTransform: {
@@ -9,59 +8,59 @@ export default defineConfig({
   hash: true,
   outputPath: 'dist',
   title: 'video',
-  history: {
-    // 路由模式配置
-    type: 'hash', // 路由url前面 带#号 （浏览器兼容好）
-    // type: 'browser' // 路由url前面 不带#号 同时不配置也是默认选项（个别浏览器不兼容）
-  },
+  // history: {
+  //   // 路由模式配置
+  //   type: 'hash', // 路由url前面 带#号 （浏览器兼容好）
+  //   // type: 'browser' // 路由url前面 不带#号 同时不配置也是默认选项（个别浏览器不兼容）
+  // },
   historyWithQuery: true,
   define: {
     baseUrl: 'http://192.168.199.135:9705',
     // baseUrl: 'http://192.168.199.135',
   },
-  // 请求反向代理配置
-  proxy: {
-    // 用户
-    '/user': {
-      target: 'http://192.168.199.135:9701/',
-      changeOrigin: true,
-      pathRewrite: { '^/user': '' },
-    },
-    // 视频
-    '/video': {
-      target: 'http://192.168.199.135:9702/',
-      changeOrigin: true,
-      pathRewrite: { '^/video': '' },
-    },
-    // 公共
-    '/public': {
-      target: 'http://192.168.199.135:9501/',
-      changeOrigin: true,
-      pathRewrite: { '^/public': '' },
-    },
-    // 消息
-    '/message': {
-      target: 'http://192.168.199.135:9704/',
-      changeOrigin: true,
-      pathRewrite: { '^/message': '' },
-    },
-    // 联系人
-    '/contact': {
-      target: 'http://192.168.199.135:9705/',
-      changeOrigin: true,
-      pathRewrite: { '^/contact': '' },
-    },
-    // '/contact': {
-    //     'target': 'http://192.168.199.135:9501/',
-    //     'changeOrigin': true,
-    //     'pathRewrite': { '^/video': '' },
-    // },
-  },
+  // // 请求反向代理配置
+  // proxy: {
+  //   // 用户
+  //   '/user': {
+  //     target: 'http://192.168.199.135:9701/',
+  //     changeOrigin: true,
+  //     pathRewrite: { '^/user': '' },
+  //   },
+  //   // 视频
+  //   '/video': {
+  //     target: 'http://192.168.199.135:9702/',
+  //     changeOrigin: true,
+  //     pathRewrite: { '^/video': '' },
+  //   },
+  //   // 公共
+  //   '/public': {
+  //     target: 'http://192.168.199.135:9501/',
+  //     changeOrigin: true,
+  //     pathRewrite: { '^/public': '' },
+  //   },
+  //   // 消息
+  //   '/message': {
+  //     target: 'http://192.168.199.135:9704/',
+  //     changeOrigin: true,
+  //     pathRewrite: { '^/message': '' },
+  //   },
+  //   // 联系人
+  //   '/contact': {
+  //     target: 'http://192.168.199.135:9705/',
+  //     changeOrigin: true,
+  //     pathRewrite: { '^/contact': '' },
+  //   },
+  //   // '/contact': {
+  //   //     'target': 'http://192.168.199.135:9501/',
+  //   //     'changeOrigin': true,
+  //   //     'pathRewrite': { '^/video': '' },
+  //   // },
+  // },
   theme: {
     '@primary-color': '#e6f7ff',
     '@color-pink': '#fff0f6',
   },
-  routes: routes,
+  // routes: routes,
   fastRefresh: true,
   locale: {
     antd: true,
