@@ -1,0 +1,48 @@
+.qvbilam-video {
+  &-friends-list {
+    width: 200px;
+    margin-right: 10px;
+
+    &-item {
+      width: 200px;
+      height: 60px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      border-bottom: 1px solid #ccc;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      &-name {
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 148px;
+
+        &-meg {
+          display: flex;
+          width: 148px;
+
+          &-text {
+            width: 116px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            justify-content: space-between;
+          }
+        }
+      }
+
+      &-acitve {
+        color: paleturquoise;
+      }
+    }
+
+    // height: calc(100% - 60px);
+    // padding: 20px;
+    // background-color: rgba(255, 255, 255, 0.6);
+    // margin-top: 20px;
+    // border-radius: 8px
+  }
+}

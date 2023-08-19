@@ -1,0 +1,147 @@
+.qvbilam-video {
+  &-talkComponent {
+    background: #fff;
+    width: 80%;
+    position: relative;
+    height: 100%;
+    padding-bottom: 160px;
+
+    &-header {
+      background: #fff;
+      z-index: 2;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+
+    &-content {
+      // height: calc(100% - 40px);
+      // padding: 0 20px;
+      // overflow-y: auto;
+
+      &-line {
+        width: 100%;
+        padding: 0 20px;
+        position: relative;
+
+        &-left {
+          display: flex;
+          position: relative;
+          top: 0;
+          left: 0;
+
+          &-message {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+
+            &-name {
+              padding: 0 10px;
+              font-size: 12px;
+              font-weight: 500;
+              text-align: start;
+            }
+
+            &-txt {
+              margin-left: 10px;
+              line-height: 30px;
+              color: #000;
+              background-color: #d8d8d8;
+              border-radius: 6px;
+              padding: 0 10px;
+              position: relative;
+              top: 5px;
+
+              &::before {
+                content: '';
+                width: 0;
+                height: 0;
+                border: 6px solid #d8d8d8;
+                border-color: transparent #d8d8d8 transparent transparent;
+                position: absolute;
+                left: -12px;
+                top: 10px;
+              }
+            }
+          }
+        }
+
+        &-right {
+          display: flex;
+          flex-direction: row-reverse;
+          position: relative;
+          top: 0;
+          right: 0;
+
+          &-message {
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+
+            &-name {
+              padding: 0 10px;
+              font-size: 12px;
+              font-weight: 500;
+              text-align: end;
+              position: absolute;
+              top: -12px;
+              right: 34px;
+            }
+
+            &-txt {
+              margin-right: 10px;
+              line-height: 30px;
+              color: #fff;
+              background-color: #59a6e9;
+              border-radius: 6px;
+              padding: 0 10px;
+              position: relative;
+              top: 5px;
+
+              &::before {
+                content: '';
+                width: 0;
+                height: 0;
+                border: 6px solid #59a6e9;
+                border-color: transparent transparent transparent #59a6e9;
+                position: absolute;
+                top: 10px;
+                right: -12px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-footer {
+      height: 190px;
+      width: 100%;
+      border-top: 1px solid #d8d8d8;
+      position: absolute;
+      bottom: 0;
+      padding: 5px 10px 0;
+
+      &-opation {
+        height: 30px;
+
+        &-pop {
+          :global {
+            .ant-popover-inner-content {
+              padding: 0;
+            }
+          }
+        }
+      }
+
+      &-submit {
+        position: absolute;
+        right: 80px;
+        bottom: 10px;
+      }
+    }
+  }
+}
