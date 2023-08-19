@@ -1,0 +1,55 @@
+.qvbilam-video {
+  &-banner {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    background-color: aqua;
+
+    &-item {
+      &-img {
+        height: 400px;
+        width: 100%;
+      }
+    }
+  }
+
+  &-tab-card {
+    margin: 20px;
+    padding: 20px;
+    padding-bottom: 0;
+    background-color: #e6f7ff;
+    //  background-color: @primary-color;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 8px;
+
+    &-capsule {
+      width: calc(20% - 20px);
+      margin: 0 10px;
+      background-color: #fff0f6;
+      // background-color: @color-pink;
+      height: 40px;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      color: rgba(0, 0, 0, 0.65);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+
+      &-type {
+        display: block;
+        padding: 0 20px;
+        border-right: 1px solid rgba(0, 0, 0, 0.25);
+      }
+
+      &-link {
+        display: block;
+        padding: 0 10px;
+      }
+    }
+  }
+
+  &-tab-content {
+    width: 100%;
+  }
+}
