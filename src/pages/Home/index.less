@@ -4,6 +4,7 @@
     width: 100%;
     overflow: hidden;
     background-color: aqua;
+    margin-top: -60px;
 
     &-item {
       &-img {
@@ -13,8 +14,82 @@
     }
   }
 
+  &-top {
+    display: flex;
+    height: 110px;
+
+    &-left {
+      width: 210px;
+      margin-right: 8px;
+      display: flex;
+      justify-content: space-around;
+
+      &-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &-icon {
+          width: 46px;
+          height: 46px;
+          display: block;
+          border-radius: 23px;
+          line-height: 50px;
+          text-align: center;
+        }
+
+        &-title {
+          font-family: 600;
+          font-size: 12px;
+          margin-top: 8px;
+        }
+      }
+    }
+
+    &-right {
+      width: calc(100% - 218px);
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-auto-flow: column;
+      padding: 20px 0;
+      grid-gap: 10px;
+
+      &-chennel {
+        font-size: 14px;
+        display: inline-block;
+        box-sizing: content-box;
+        width: 100%;
+        height: 28px;
+        line-height: 28px;
+        border: 1px solid #f1f2f3;
+        border-radius: 6px;
+        background-color: #f6f7f8;
+        color: #61666d;
+        text-align: center;
+        font-weight: 400;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover {
+          background-color: #e3e5e7;
+          color: #18191c;
+        }
+      }
+
+      :global {
+        .ant-popover-placement-top {
+          padding-bottom: 0;
+        }
+
+        .ant-popover-placement-top .ant-popover-arrow {
+          display: none;
+        }
+      }
+    }
+  }
+
   &-tab-card {
-    margin: 20px;
     padding: 20px;
     padding-bottom: 0;
     background-color: #e6f7ff;
@@ -52,4 +127,40 @@
   &-tab-content {
     width: 100%;
   }
+
+  &-prop-content {
+    display: flex;
+
+    &-box {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      margin-right: 8px;
+      max-height: 148px;
+
+      &-item {
+        display: block;
+        padding: 0 6px;
+        height: 32px;
+        border-radius: 4px;
+        color: #18191c;
+        text-align: left;
+        white-space: nowrap;
+        font-size: 13px;
+        line-height: 32px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #e3e5e7;
+        }
+      }
+    }
+  }
+}
+
+.home-warp {
+  min-width: 1020px;
+  margin: 0 auto;
+  padding: 0 56px;
 }

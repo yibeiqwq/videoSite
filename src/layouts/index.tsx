@@ -2,7 +2,7 @@ import type { UserInfo } from '@/common/type';
 import { NAME_SPACE } from '@/components/constant';
 import { Login } from '@/pages/Login';
 import { searchAll } from '@/services/user';
-import { UserOutlined } from '@ant-design/icons';
+import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, ConfigProvider, Dropdown, Input, Select } from 'antd';
 import 'antd/dist/antd.min.css';
 import zhCN from 'antd/es/locale/zh_CN';
@@ -90,7 +90,19 @@ const Layout: React.FC = () => {
       <div className={styles[`${NAME_SPACE}-page-wrap`]}>
         <div className={styles[`${NAME_SPACE}-header`]}>
           <div className={styles[`${NAME_SPACE}-header-content`]}>
-            <div className={styles[`${NAME_SPACE}-header-content-logo`]} />
+            <div
+              className={styles[`${NAME_SPACE}-header-content-logo`]}
+              onClick={() => {
+                history.push('/home');
+              }}
+            >
+              <HomeOutlined onClick={() => {}} />
+              <span
+                className={styles[`${NAME_SPACE}-header-content-logo-title`]}
+              >
+                首页
+              </span>
+            </div>
             {/* 搜索 */}
             {/* <Search placeholder="input search text" onSearch={onSearch} className={styles[`${NAME_SPACE}-header-content-search`]} /> */}
             <Select

@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  app:
+    build:
+      context: .
+    tty: true
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "1"
+    ports:
+      - 9700:8000
+    command: yarn start
+    

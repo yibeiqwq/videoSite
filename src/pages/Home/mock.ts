@@ -1,3 +1,4 @@
+// 首页视频信息
 export const resHome = {
   data: [
     {
@@ -78,3 +79,52 @@ export const resHome = {
   ],
   total: 1,
 };
+
+// 首页栏目信息
+export const columnData = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+  23, 24, 25,
+].map((x, index) => {
+  return {
+    id: index + 1,
+    name: '番剧' + index,
+    path: `/${index}`,
+    menu: [
+      {
+        id: `${index + 1}-1`,
+        name: '连载动画',
+        path: `/连载动画/${index}`,
+      },
+      {
+        id: `${index + 1}-2`,
+        name: '完结动画',
+        path: `/连载动画/${index}`,
+      },
+      {
+        id: `${index + 1}-3`,
+        name: '完结动画',
+        path: `/连载动画/${index}`,
+      },
+      {
+        id: `${index + 1}-4`,
+        name: '完结动画',
+        path: `/连载动画/${index}`,
+      },
+      {
+        id: `${index + 1}-5`,
+        name: '完结动画',
+        path: `/连载动画/${index}`,
+      },
+      {
+        id: `${index + 1}-6`,
+        name: '完结动画',
+        path: `/连载动画/${index}`,
+      },
+      {
+        id: `${index + 1}-7`,
+        name: '完结动画',
+        path: `/连载动画/${index}`,
+      },
+    ],
+  };
+});

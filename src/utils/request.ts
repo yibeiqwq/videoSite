@@ -55,7 +55,7 @@ request.interceptors.response.use(async (response: any) => {
   // 注册成功
   if (
     response &&
-    response.url.indexOf('/user/account/register') > -1 &&
+    response.url?.indexOf('/user/account/register') > -1 &&
     response.status === 204
   ) {
     notification.success({
@@ -107,6 +107,7 @@ request.interceptors.response.use(async (response: any) => {
 // 中间件，对请求前添加 userId token 的基础参数
 request.interceptors.request.use((url: any, options: any) => {
   let newUrl = url;
+  console.log(options, 'options');
   const newOptions = { ...options };
   if (!(newOptions.data instanceof FormData)) {
     newOptions.data = {
