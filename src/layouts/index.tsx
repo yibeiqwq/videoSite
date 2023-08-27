@@ -1,12 +1,12 @@
-import type { UserInfo } from '@/common/type';
 import { NAME_SPACE } from '@/components/constant';
 import { Login } from '@/pages/Login';
 import { searchAll } from '@/services/user';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
+import { useModel } from '@umijs/max';
 import { Avatar, Button, ConfigProvider, Dropdown, Input, Select } from 'antd';
 import 'antd/dist/antd.min.css';
 import zhCN from 'antd/es/locale/zh_CN';
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { history, Link, Outlet } from 'umi';
 import './common.less';
 import styles from './index.less';
@@ -14,12 +14,7 @@ import styles from './index.less';
 const { Search } = Input;
 const Layout: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const userLocalStorage = window.localStorage.getItem('user');
-  const userInfo: UserInfo | undefined = useMemo(() => {
-    return typeof userLocalStorage === 'string'
-      ? JSON.parse(userLocalStorage)
-      : undefined;
-  }, [userLocalStorage]);
+  const { userInfo } = useModel('useUserInfo');
 
   // 搜索内容
   const [searchKeyWord, setSearchKeyWord] = useState<string>('');

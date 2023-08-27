@@ -1,7 +1,7 @@
-import { Button, Col, Form, Input, Modal, Row, Tabs } from 'antd';
-import React, { useCallback, useState } from 'react';
-// import { useModel } from 'umi';
 import { Login as LoginApi, Register } from '@/services/login';
+import { Button, Col, Form, Input, Modal, Row, Tabs } from 'antd';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useModel } from 'umi';
 import { LoginMethod } from './interface';
 
 interface Props {
@@ -19,7 +19,15 @@ type Tab = 'login' | 'register';
 const Login: React.FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
   const [method, setMethod] = useState<LoginMethod>('mobile');
   const [tab, setTab] = useState<Tab>('login');
-  // const { setUserInfo } = useModel('@@userUserInfo');
+  const { setUserInfo } = useModel('useUserInfo');
+  const [form] = Form.useForm();
+
+  useEffect(() => {
+    if (method === 'mobile') {
+      form.setFieldValue('mobile', '13501294164');
+      form.setFieldValue('password', '123456');
+    }
+  }, [method]);
 
   // 注册/登录按钮
   const onFinish = useCallback(
@@ -32,10 +40,9 @@ const Login: React.FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
       } else {
         const res = await LoginApi({ ...values, method });
         if (res && res.data) {
-          window.localStorage.setItem('user', JSON.stringify(res.data));
-          // setUserInfo(res.data);
-
+          setUserInfo(res.data);
           setIsModalOpen(false);
+          history.go();
         }
       }
     },
@@ -57,7 +64,7 @@ const Login: React.FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
           },
         ]}
       >
-        <Input defaultValue="13501294164" />
+        <Input />
       </Form.Item>
       <Form.Item
         label="密码"
@@ -127,6 +134,7 @@ const Login: React.FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
             key: _item,
             children: (
               <Form
+                form={form}
                 name={_item}
                 labelCol={{ span: 5 }}
                 wrapperCol={{ span: 16 }}

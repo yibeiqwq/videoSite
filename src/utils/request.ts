@@ -49,9 +49,13 @@ const request = extend({
 //  request响应拦截器, 统一处理错误信息
 request.interceptors.response.use(async (response: any) => {
   // 未登录
-  // if (response?.status === 401) {
-  //     window.localStorage.removeItem('user');
-  // }
+  if (response?.status === 401) {
+    window.localStorage.removeItem('user');
+    return {
+      // success: true,
+      message: '用户未登录',
+    };
+  }
   // 注册成功
   if (
     response &&
@@ -107,7 +111,6 @@ request.interceptors.response.use(async (response: any) => {
 // 中间件，对请求前添加 userId token 的基础参数
 request.interceptors.request.use((url: any, options: any) => {
   let newUrl = url;
-  console.log(options, 'options');
   const newOptions = { ...options };
   if (!(newOptions.data instanceof FormData)) {
     newOptions.data = {

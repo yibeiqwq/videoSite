@@ -1,6 +1,6 @@
-import type { UserInfo } from '@/common/type';
 import { Icon } from '@/components';
 import { NAME_SPACE } from '@/components/constant';
+import { useModel } from '@umijs/max';
 import { Input } from 'antd';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Contacts } from './components/Contacts';
@@ -20,9 +20,9 @@ const { TextArea } = Input;
 const Conversation: React.FC = () => {
   const preClass = `${NAME_SPACE}-conversation`;
   const [currentMenu, setCurrentMenu] = useState<MenuList>('friendMenu');
+  const { userInfo } = useModel('useUserInfo');
   // 当前正在聊天联系人
   const [currentFriend, setCurrentFriend] = useState<ConversationList>();
-  const userInfoRef = useRef<UserInfo>();
   const wsRef = useRef<WebSocket>();
   const timerRef = useRef<any>();
   // 左侧消息列表
@@ -47,13 +47,7 @@ const Conversation: React.FC = () => {
 
   // 开启WebSocket
   useEffect(() => {
-    const userLocalStorage = window.localStorage.getItem('user');
-    if (userLocalStorage) {
-      userInfoRef.current = JSON.parse(userLocalStorage);
-    }
-    const ws = new WebSocket(
-      `ws://192.168.199.135:9704/ws?u=${userInfoRef.current?.id}`,
-    );
+    const ws = new WebSocket(`ws://192.168.199.135:9704/ws?u=${userInfo?.id}`);
     ws.onopen;
     getState();
 
@@ -111,7 +105,7 @@ const Conversation: React.FC = () => {
           <TalkComponent
             wsData={wsData}
             currentFriend={currentFriend}
-            userInfo={userInfoRef.current}
+            userInfo={userInfo}
             friendsList={firendMessagesList}
             onFriendsChange={setFirendMessagesList}
           />

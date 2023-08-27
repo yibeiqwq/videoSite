@@ -1,10 +1,7 @@
-import { defineConfig } from 'umi';
+import { defineConfig } from '@umijs/max';
 // 路由配置
 
 export default defineConfig({
-  // nodeModulesTransform: {
-  //     type: 'none',
-  // },
   hash: true,
   outputPath: 'dist',
   title: 'video',
@@ -18,44 +15,6 @@ export default defineConfig({
     baseUrl: 'http://192.168.199.135:9705',
     // baseUrl: 'http://192.168.199.135',
   },
-  // // 请求反向代理配置
-  // proxy: {
-  //   // 用户
-  //   '/user': {
-  //     target: 'http://192.168.199.135:9701/',
-  //     changeOrigin: true,
-  //     pathRewrite: { '^/user': '' },
-  //   },
-  //   // 视频
-  //   '/video': {
-  //     target: 'http://192.168.199.135:9702/',
-  //     changeOrigin: true,
-  //     pathRewrite: { '^/video': '' },
-  //   },
-  //   // 公共
-  //   '/public': {
-  //     target: 'http://192.168.199.135:9501/',
-  //     changeOrigin: true,
-  //     pathRewrite: { '^/public': '' },
-  //   },
-  //   // 消息
-  //   '/message': {
-  //     target: 'http://192.168.199.135:9704/',
-  //     changeOrigin: true,
-  //     pathRewrite: { '^/message': '' },
-  //   },
-  //   // 联系人
-  //   '/contact': {
-  //     target: 'http://192.168.199.135:9705/',
-  //     changeOrigin: true,
-  //     pathRewrite: { '^/contact': '' },
-  //   },
-  //   // '/contact': {
-  //   //     'target': 'http://192.168.199.135:9501/',
-  //   //     'changeOrigin': true,
-  //   //     'pathRewrite': { '^/video': '' },
-  //   // },
-  // },
   theme: {
     '@primary-color': '#e6f7ff',
     '@color-pink': '#fff0f6',
@@ -64,6 +23,18 @@ export default defineConfig({
   fastRefresh: true,
   locale: {
     antd: true,
+  },
+
+  // 配置 MF 共享的模块
+  shared: {
+    react: {
+      singleton: true,
+      eager: true,
+    },
+    'react-dom': {
+      singleton: true,
+      eager: true,
+    },
   },
 });
 
