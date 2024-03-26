@@ -40,6 +40,7 @@ interface Props {
   wsData?: any;
   currentFriend: ConversationList;
   userInfo?: UserInfo;
+  setCurrentFriend: (msg: ConversationList) => void;
   // onSendMessage: (msg: string) => void;
 }
 
@@ -49,6 +50,7 @@ const TalkComponent: React.FC<Props> = ({
   wsData,
   currentFriend,
   userInfo,
+  setCurrentFriend,
   // onSendMessage
 }) => {
   const [message, setMessage] = useState<string>('');
@@ -138,12 +140,17 @@ const TalkComponent: React.FC<Props> = ({
       });
       setMessageList(newList);
 
+      console.log(newList, 'newListnewListnewList');
+
+      console.log(content, 'content');
       // 更新左侧消息列表
       if (currentFriend.object_type === 'user') {
-        currentFriend.last_message = message;
+        currentFriend.last_message = type === 'txt' ? content : '[图片]';
         currentFriend.tips = '';
         currentFriend.news_count = 0;
         currentFriend.last_message_time = moment().unix();
+        // dayjs().valueOf();
+
         const newList = friendsList.filter(
           (_item: ConversationList) =>
             !(
@@ -152,6 +159,7 @@ const TalkComponent: React.FC<Props> = ({
             ),
         );
         newList.unshift(currentFriend);
+        console.log(newList, 22222222222);
         onFriendsChange(newList);
       }
     },

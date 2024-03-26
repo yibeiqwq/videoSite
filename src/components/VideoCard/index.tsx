@@ -9,9 +9,10 @@ const VideoCard: React.FC<Props> = ({}) => {
   const preClass = `${NAME_SPACE}-video-card`;
   return (
     <div className={styles[preClass]}>
-      <Skeleton.Node active></Skeleton.Node>
-      <Skeleton loading={true} active>
-        www
+      <Skeleton.Image active={true} />
+      <Skeleton loading={true} active={true}>
+        <span style={{ marginBottom: 16 }}>up:222222·时间</span>
+        <span style={{ marginBottom: 16 }}>Ant Design, a design language</span>
       </Skeleton>
     </div>
   );

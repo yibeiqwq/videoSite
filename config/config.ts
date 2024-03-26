@@ -12,8 +12,8 @@ export default defineConfig({
   // },
   historyWithQuery: true,
   define: {
-    baseUrl: 'http://192.168.199.135:9705',
-    // baseUrl: 'http://192.168.199.135',
+    // baseUrl: 'http://192.168.31.255:9705',
+    // baseUrl: 'http://192.168.31.255',
   },
   theme: {
     '@primary-color': '#e6f7ff',

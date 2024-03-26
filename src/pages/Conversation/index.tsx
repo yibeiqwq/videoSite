@@ -47,7 +47,7 @@ const Conversation: React.FC = () => {
 
   // 开启WebSocket
   useEffect(() => {
-    const ws = new WebSocket(`ws://192.168.199.135:9704/ws?u=${userInfo?.id}`);
+    const ws = new WebSocket(`ws://192.168.31.20:9704/ws?u=${userInfo?.id}`);
     ws.onopen;
     getState();
 
@@ -107,6 +107,7 @@ const Conversation: React.FC = () => {
             currentFriend={currentFriend}
             userInfo={userInfo}
             friendsList={firendMessagesList}
+            setCurrentFriend={setCurrentFriend}
             onFriendsChange={setFirendMessagesList}
           />
         ) : null}
