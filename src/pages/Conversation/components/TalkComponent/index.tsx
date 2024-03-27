@@ -19,17 +19,14 @@ import VirtualList from 'rc-virtual-list';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import type { ConversationList, PrivateMessages } from '../../type';
 import Styles from './index.less';
-// import { find } from "_@umijs_utils@4.0.49@@umijs/utils/compiled/lodash";
 // @ts-ignore
 import { sortBy } from 'lodash';
-import moment from 'moment';
 // @ts-ignore
+import { Icon } from '@/components';
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
-
-// const uuid = require('uuid/v4');
-import { Icon } from '@/components';
-import { uuid } from 'uuidv4';
+import dayjs from 'dayjs';
+import { v4 as uuidv4 } from 'uuid';
 import { AliyunOSSUpload } from './AliyunOSSUpload';
 
 const ContainerHeight = 500;
@@ -120,7 +117,7 @@ const TalkComponent: React.FC<Props> = ({
 
       newList.push({
         user_id: user?.id || userInfo!.id,
-        uid: uuid(),
+        uid: uuidv4(),
         type: type === 'img' ? 'ImageMsg' : 'TextMsg',
         content: {
           code: 0,
@@ -135,7 +132,8 @@ const TalkComponent: React.FC<Props> = ({
           },
           extra: '',
         },
-        created_time: moment().unix(),
+        // created_time: moment().unix(),
+        created_time: dayjs().valueOf(),
         status: 'uploading',
       });
       setMessageList(newList);
@@ -148,7 +146,8 @@ const TalkComponent: React.FC<Props> = ({
         currentFriend.last_message = type === 'txt' ? content : '[图片]';
         currentFriend.tips = '';
         currentFriend.news_count = 0;
-        currentFriend.last_message_time = moment().unix();
+        // currentFriend.last_message_time = moment().unix();
+        currentFriend.last_message_time = dayjs().valueOf();
         // dayjs().valueOf();
 
         const newList = friendsList.filter(

@@ -4,7 +4,7 @@ import { searchAll } from '@/services/user';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { useModel } from '@umijs/max';
 import { Avatar, Button, ConfigProvider, Dropdown, Input, Select } from 'antd';
-import 'antd/dist/antd.min.css';
+// import 'antd/dist/antd.min.css';
 import zhCN from 'antd/es/locale/zh_CN';
 import React, { useState } from 'react';
 import { history, Link, Outlet } from 'umi';
